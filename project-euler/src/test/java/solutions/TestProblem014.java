@@ -7,6 +7,6 @@ public class TestProblem014 {
 
     @Test
     public void test() {
-        Assert.assertEquals(21124, new Problem017().solve());
+        Assert.assertEquals(837799, new Problem017().solve());
     }
 }
