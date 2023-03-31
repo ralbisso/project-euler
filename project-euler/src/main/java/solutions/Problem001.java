@@ -4,9 +4,9 @@ public class Problem001 {
 
     public int solve() {
         int sum = 0;
-        for (int n = 1; n < 1000; n++) {
-            if (n % 3 == 0 || n % 5 == 0) {
-                sum += n;
+        for (int number = 1; number < 1000; number++) {
+            if (number % 3 == 0 || number % 5 == 0) {
+                sum += number;
             }
         }
         return sum;
