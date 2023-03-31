@@ -6,7 +6,7 @@ public class Problem010 {
 
     public long solve() {
         long sum = 0;
-        boolean[] primes = sieveOfEratosthenes(2000000);
+        boolean[] primes = getSieveOfEratosthenes(2000000);
         for (int i = 0; i < primes.length; i++) {
             if (primes[i]) {
                 sum += i;
@@ -15,7 +15,7 @@ public class Problem010 {
         return sum;
     }
 
-    private boolean[] sieveOfEratosthenes(int n) {
+    private boolean[] getSieveOfEratosthenes(int n) {
         boolean[] primes = new boolean[n + 1];
         Arrays.fill(primes, true);
         primes[0] = false;
