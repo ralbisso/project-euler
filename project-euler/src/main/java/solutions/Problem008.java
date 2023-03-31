@@ -1,14 +1,13 @@
 package solutions;
 
-import utils.FileUtils;
+import static utils.FileUtils.P008;
+import static utils.FileUtils.getAllLines;
 
 public class Problem008 {
 
     public long solve() {
         long max = 0;
-        String series = FileUtils.getAllLines(FileUtils.P008)
-                .stream()
-                .reduce("", (s1, s2) -> s1 + s2);
+        String series = getAllLines(P008).stream().reduce("", (s1, s2) -> s1 + s2);
         for (int i = 0; i <= series.length() - 13; i++) {
             long product = getProduct(series.substring(i, i + 13));
             if (product > max) {
