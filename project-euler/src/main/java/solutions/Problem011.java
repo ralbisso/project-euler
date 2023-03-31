@@ -22,8 +22,9 @@ public class Problem011 {
     }
 
     private int getPointMaxProduct(int i, int j, int[][] grid) {
-        int antidiagonal = 1, diagonal = 1, horizontal = 1, vertical = 1;
-        for (int k = 0; k < 4; k++) {
+        int antidiagonal = grid[i][j], diagonal = grid[i][j];
+        int horizontal = grid[i][j], vertical = grid[i][j];
+        for (int k = 1; k < 4; k++) {
             antidiagonal *= getNextTerm(grid, i + k, j - k);
             diagonal *= getNextTerm(grid, i + k, j + k);
             horizontal *= getNextTerm(grid, i, j + k);
