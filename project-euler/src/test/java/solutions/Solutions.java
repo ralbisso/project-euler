@@ -101,4 +101,5 @@ final class Solutions {
     final static int PROBLEM_098 = 18769;
     final static int PROBLEM_099 = 709;
     final static long PROBLEM_100 = 756872327473L;
+    final static long PROBLEM_808 = 3807504276997394L;
 }
