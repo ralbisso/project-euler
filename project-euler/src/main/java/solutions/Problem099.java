@@ -1,13 +1,14 @@
 package solutions;
 
-import utils.FileUtils;
+import static utils.FileUtils.P099;
+import static utils.FileUtils.getAllLines;
 
 public class Problem099 {
 
     public int solve() {
         int index = 1;
         double max = 0;
-        var lines = FileUtils.getAllLines(FileUtils.P099);
+        var lines = getAllLines(P099);
         for (int i = 0; i < lines.size(); i++) {
             String[] split = lines.get(i).split(",");
             int base = Integer.parseInt(split[0]);
