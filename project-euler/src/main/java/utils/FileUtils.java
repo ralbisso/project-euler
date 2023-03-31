@@ -14,6 +14,7 @@ public class FileUtils {
     public final static String P013 = "p013_large_sum";
     public final static String P018 = "p018_triangle";
     public final static String P067 = "p067_triangle";
+    public final static String P099 = "p099_base_exp";
 
     public static List<String> getAllLines(String fileName) {
         Path filePath = Paths.get(RESOURCES + fileName);
