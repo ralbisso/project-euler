@@ -1,11 +1,12 @@
 package solutions;
 
-import utils.FileUtils;
+import static utils.FileUtils.P067;
+import static utils.FileUtils.getAllLinesAsGrid;
 
 public final class Problem067 extends Problem018 {
 
     public int solve() {
-        int[][] triangle = getTriangle(FileUtils.P067);
+        int[][] triangle = getAllLinesAsGrid(P067);
         return getMaximum(triangle);
     }
 }

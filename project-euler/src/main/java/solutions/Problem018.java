@@ -1,28 +1,13 @@
 package solutions;
 
-import java.util.List;
-
-import utils.FileUtils;
+import static utils.FileUtils.P018;
+import static utils.FileUtils.getAllLinesAsGrid;
 
 public sealed class Problem018 permits Problem067 {
 
     public int solve() {
-        int[][] triangle = getTriangle(FileUtils.P018);
+        int[][] triangle = getAllLinesAsGrid(P018);
         return getMaximum(triangle);
-    }
-
-    protected int[][] getTriangle(String fileName) {
-        List<String> input = FileUtils.getAllLines(fileName);
-        int[][] triangle = new int[input.size()][];
-        for (int i = 0; i < triangle.length; i++) {
-            String[] split = input.get(i).split(" ");
-            int[] row = new int[split.length];
-            for (int j = 0; j < row.length; j++) {
-                row[j] = Integer.parseInt(split[j]);
-            }
-            triangle[i] = row;
-        }
-        return triangle;
     }
 
     protected int getMaximum(int[][] triangle) {
