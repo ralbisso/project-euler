@@ -4,16 +4,16 @@ public class Problem014 {
 
     public int solve() {
         int max = 1, longest = 1;
-        for (int i = 1; i < 1000000; i++) {
-            long number = i;
+        for (int start = 1; start < 1000000; start++) {
+            long collatz = start;
             int length = 1;
-            while (number > 1) {
-                number = getNextCollatzTerm(number);
+            while (collatz > 1) {
+                collatz = getNextCollatzTerm(collatz);
                 length++;
             }
             if (length > longest) {
                 longest = length;
-                max = i;
+                max = start;
             }
         }
         return max;
