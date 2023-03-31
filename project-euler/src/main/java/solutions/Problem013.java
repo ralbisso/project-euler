@@ -2,12 +2,12 @@ package solutions;
 
 import java.math.BigInteger;
 
-import utils.FileUtils;
+import static utils.FileUtils.*;
 
 public class Problem013 {
 
     public long solve() {
-        BigInteger sum = FileUtils.getAllLines(FileUtils.P013)
+        BigInteger sum = getAllLines(P013)
                 .stream()
                 .map(BigInteger::new)
                 .reduce(BigInteger.ZERO, (b1, b2) -> b1.add(b2));
