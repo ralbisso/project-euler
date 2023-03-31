@@ -21,6 +21,7 @@ public class FileUtils {
     public final static String P082 = "p082_matrix";
     public final static String P083 = "p083_matrix";
     public final static String P099 = "p099_base_exp";
+    public final static String P102 = "p102_triangles";
 
     public static List<String> getAllLines(String fileName) {
         Path filePath = Paths.get(RESOURCES + fileName);
