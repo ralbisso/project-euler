@@ -1,6 +1,6 @@
 package solutions;
 
-import utils.PrimeUtils;
+import static utils.PrimeUtils.isPrime;
 
 public class Problem007 {
 
@@ -8,7 +8,7 @@ public class Problem007 {
         int count = 2, number = 3;
         while (count < 10001) {
             number += 2;
-            if (PrimeUtils.isPrime(number)) {
+            if (isPrime(number)) {
                 count++;
             }
         }

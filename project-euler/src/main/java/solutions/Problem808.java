@@ -1,19 +1,21 @@
 package solutions;
 
-import java.util.HashSet;
+import static utils.NumberUtils.getReverse;
+import static utils.NumberUtils.isPalindromic;
+import static utils.PrimeUtils.getSieveOfEratosthenes;
 
-import utils.PrimeUtils;
+import java.util.HashSet;
 
 public class Problem808 {
 
     public long solve() {
-        long sum = 0;
-        int count = 0, i = 3;
-        boolean[] primes = PrimeUtils.getSieveOfEratosthenes(32000000);
+        long sum = 0, i = 3;
+        int count = 0;
+        boolean[] primes = getSieveOfEratosthenes(32000000);
         var primeSquares = new HashSet<>();
         while (count < 50) {
-            if (primes[i]) {
-                long square = (long) i * (long) i;
+            if (primes[(int) i]) {
+                long square = i * i;
                 long reverse = getReverse(square);
                 primeSquares.add(square);
                 if (primeSquares.contains(reverse) && !isPalindromic(square)) {
@@ -24,19 +26,5 @@ public class Problem808 {
             i += 2;
         }
         return sum;
-    }
-
-    private boolean isPalindromic(long number) {
-        return number == getReverse(number);
-    }
-
-    private long getReverse(long number) {
-        long reverse = 0;
-        while (number > 0) {
-            reverse *= 10;
-            reverse += number % 10;
-            number /= 10;
-        }
-        return reverse;
     }
 }

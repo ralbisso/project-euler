@@ -1,5 +1,7 @@
 package solutions;
 
+import static utils.NumberUtils.isPalindromic;
+
 public class Problem004 {
 
     public int solve() {
@@ -13,19 +15,5 @@ public class Problem004 {
             }
         }
         return max;
-    }
-
-    private boolean isPalindromic(int number) {
-        return number == getReverse(number);
-    }
-
-    private int getReverse(int number) {
-        int reverse = 0;
-        while (number > 0) {
-            reverse *= 10;
-            reverse += number % 10;
-            number /= 10;
-        }
-        return reverse;
     }
 }
