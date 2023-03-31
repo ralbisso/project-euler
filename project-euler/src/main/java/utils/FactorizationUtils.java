@@ -8,9 +8,17 @@ public class FactorizationUtils {
 
     public static Map<Integer, Integer> getFactorization(int number) {
         Map<Integer, Integer> factorization = new TreeMap<>();
-        int factor = 2;
+        int multiplicity = 0;
+        if (number % 2 == 0) {
+            while (number % 2 == 0) {
+                multiplicity++;
+                number /= 2;
+            }
+            factorization.put(2, multiplicity);
+        }
+        int factor = 3;
         while (number > 1) {
-            int multiplicity = 0;
+            multiplicity = 0;
             while (number % factor == 0) {
                 multiplicity++;
                 number /= factor;
@@ -18,7 +26,7 @@ public class FactorizationUtils {
             if (multiplicity > 0) {
                 factorization.put(factor, multiplicity);
             }
-            factor++;
+            factor += 2;
         }
         return factorization;
     }
@@ -32,5 +40,24 @@ public class FactorizationUtils {
             }
         }
         return number;
+    }
+
+    public static int getNumberOfDivisors(int number) {
+        int numberOfDivisors = 1;
+        while (number % 2 == 0) {
+            numberOfDivisors++;
+            number /= 2;
+        }
+        int factor = 3;
+        while (number > 1) {
+            int multiplicity = 0;
+            while (number % factor == 0) {
+                multiplicity++;
+                number /= factor;
+            }
+            numberOfDivisors *= multiplicity + 1;
+            factor += 2;
+        }
+        return numberOfDivisors;
     }
 }
