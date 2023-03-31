@@ -1,8 +1,11 @@
 package solutions;
 
-public class Problem067 {
+import utils.FileUtils;
+
+public final class Problem067 extends Problem018 {
 
     public int solve() {
-        return 0;
+        int[][] triangle = getTriangle(FileUtils.P067);
+        return getMaximum(triangle);
     }
 }
