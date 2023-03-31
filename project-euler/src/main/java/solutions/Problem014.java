@@ -3,7 +3,7 @@ package solutions;
 public class Problem014 {
 
     public int solve() {
-        int max = 1, maxLength = 1;
+        int max = 1, longest = 1;
         for (int i = 1; i < 1000000; i++) {
             long number = i;
             int length = 1;
@@ -11,8 +11,8 @@ public class Problem014 {
                 number = getNextCollatzTerm(number);
                 length++;
             }
-            if (length > maxLength) {
-                maxLength = length;
+            if (length > longest) {
+                longest = length;
                 max = i;
             }
         }
