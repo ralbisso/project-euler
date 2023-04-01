@@ -34,4 +34,20 @@ public class PrimeUtils {
         }
         return primes;
     }
+
+    public static int[] getEulerTotients(int n) {
+        int[] phi = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            phi[i] = i;
+        }
+        for (int p = 2; p <= n; p++) {
+            if (phi[p] == p) {
+                for (int i = p; i <= n; i += p) {
+                    phi[i] = phi[i] / p * (p - 1);
+                }
+            }
+        }
+        return phi;
+    }
+
 }
