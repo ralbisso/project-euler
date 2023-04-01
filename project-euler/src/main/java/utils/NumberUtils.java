@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Arrays;
+
 public class NumberUtils {
 
     public static boolean isPalindromic(int number) {
@@ -8,6 +10,14 @@ public class NumberUtils {
 
     public static boolean isPalindromic(long number) {
         return number == getReverse(number);
+    }
+
+    public static boolean isPermutation(int n, int m) {
+        char[] nToChar = Integer.toString(n).toCharArray();
+        char[] mToChar = Integer.toString(m).toCharArray();
+        Arrays.sort(nToChar);
+        Arrays.sort(mToChar);
+        return Arrays.equals(nToChar, mToChar);
     }
 
     private static int getReverse(int number) {
