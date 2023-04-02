@@ -16,4 +16,12 @@ public class BigIntegerUtils {
         BigInteger denominator = getFactorial(k).multiply(getFactorial(n - k));
         return numerator.divide(denominator);
     }
+    
+    public static int getSumOfDigits(BigInteger number) {
+        int sum = 0;
+        for (char c : number.toString().toCharArray()) {
+            sum += Character.getNumericValue(c);
+        }
+        return sum;
+    }
 }

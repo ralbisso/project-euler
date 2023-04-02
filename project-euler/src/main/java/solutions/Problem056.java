@@ -1,6 +1,6 @@
 package solutions;
 
-import static utils.NumberUtils.getSumOfDigits;
+import static utils.BigIntegerUtils.getSumOfDigits;
 
 import java.math.BigInteger;
 
@@ -10,8 +10,7 @@ public class Problem056 {
         int max = 0;
         for (int a = 2; a < 100; a++) {
             for (int b = 2; b < 100; b++) {
-                BigInteger big = BigInteger.valueOf(a).pow(b);
-                int sum = getSumOfDigits(big.toString());
+                int sum = getSumOfDigits(BigInteger.valueOf(a).pow(b));
                 if (sum > max) {
                     max = sum;
                 }

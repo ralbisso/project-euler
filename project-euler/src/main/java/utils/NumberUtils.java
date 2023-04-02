@@ -39,12 +39,4 @@ public class NumberUtils {
         }
         return reverse;
     }
-
-    public static int getSumOfDigits(String number) {
-        int sum = 0;
-        for (char c : number.toCharArray()) {
-            sum += Character.getNumericValue(c);
-        }
-        return sum;
-    }
 }
