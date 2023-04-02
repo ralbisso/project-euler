@@ -49,5 +49,4 @@ public class PrimeUtils {
         }
         return phi;
     }
-
 }
