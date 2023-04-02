@@ -18,7 +18,7 @@ public class Problem008 {
     }
 
     private long getProduct(String substring) {
-        if (substring.contains("0")) {
+        if (substring.indexOf('0') > 0) {
             return 0;
         }
         long product = 1;
