@@ -14,6 +14,8 @@ public class FileUtils {
     public final static String P011 = "p011_grid";
     public final static String P013 = "p013_large_sum";
     public final static String P018 = "p018_triangle";
+    public final static String P022 = "p022_names";
+    public final static String P042 = "p042_words";
     public final static String P054 = "p054_poker";
     public final static String P067 = "p067_triangle";
     public final static String P079 = "p067_keylog";
@@ -32,6 +34,10 @@ public class FileUtils {
             System.out.format("I/O error: %s%n", e);
         }
         return lines;
+    }
+
+    public static String getAllLinesAsString(String filename) {
+        return getAllLines(filename).get(0);
     }
 
     public static int[][] getAllLinesAsGrid(String fileName) {
