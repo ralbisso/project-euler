@@ -9,8 +9,8 @@ public class Problem023 {
 
     public int solve() {
         int sum = 0;
-        boolean[] canBeWrittenAsSumTwoAbundantNumbers = getNumbersThatCanBeWrittenAsSumOfTwoAbundantNumbers(
-                28123);
+        boolean[] canBeWrittenAsSumTwoAbundantNumbers = 
+                getNumbersThatCanBeWrittenAsSumOfTwoAbundantNumbers(28123);
         for (int i = 1; i < canBeWrittenAsSumTwoAbundantNumbers.length; i++) {
             if (!canBeWrittenAsSumTwoAbundantNumbers[i]) {
                 sum += i;
@@ -21,7 +21,7 @@ public class Problem023 {
 
     private boolean[] getNumbersThatCanBeWrittenAsSumOfTwoAbundantNumbers(int limit) {
         boolean[] canBeWrittenAsSumTwoAbundantNumbers = new boolean[limit + 1];
-        List<Integer> abundantNumbers = getAbundantNumbers(28123);
+        List<Integer> abundantNumbers = getAbundantNumbers(limit);
         for (int a : abundantNumbers) {
             for (int b : abundantNumbers) {
                 if (a + b < canBeWrittenAsSumTwoAbundantNumbers.length) {
