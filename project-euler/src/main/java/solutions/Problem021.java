@@ -21,6 +21,6 @@ public class Problem021 {
     }
 
     private boolean isAmicablePair(int a, int da, int b, int db) {
-        return a != b && da == b && db == a;
+        return da == b && db == a;
     }
 }
