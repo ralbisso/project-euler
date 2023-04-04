@@ -20,6 +20,25 @@ public class NumberUtils {
         return Arrays.equals(nToChar, mToChar);
     }
 
+    public static boolean is0To9Pandigital(int[] number) {
+        int length = number.length;
+        int[] trace = new int[length];
+        for (int i = 0; i < length; i++) {
+            if (++trace[number[i]] == 2) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static int getFactorial(int number) {
+        int factorial = 1;
+        for (int i = 2; i <= number; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+
     private static int getReverse(int number) {
         int reverse = 0;
         while (number > 0) {
