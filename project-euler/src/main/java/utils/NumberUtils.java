@@ -40,10 +40,7 @@ public class NumberUtils {
     }
 
     public static long getGCD(long a, long b) {
-        if (b == 0) {
-            return a;
-        }
-        return getGCD(b, a % b);
+        return b == 0 ? a : getGCD(b, a % b);
     }
 
     public static long getLCM(long a, long b) {
