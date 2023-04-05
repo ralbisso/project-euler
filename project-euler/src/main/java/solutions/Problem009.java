@@ -1,6 +1,6 @@
 package solutions;
 
-import utils.Triplet;
+import objects.Triplet;
 
 public class Problem009 {
 

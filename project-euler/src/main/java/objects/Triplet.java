@@ -1,4 +1,4 @@
-package utils;
+package objects;
 
 public record Triplet(int a, int b, int c) {
 
