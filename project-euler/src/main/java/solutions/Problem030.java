@@ -20,7 +20,7 @@ public class Problem030 {
     }
 
     private int[] getDigitFifthPowers() {
-        int[] fifthPowers = new int[10];
+        var fifthPowers = new int[10];
         for (int i = 0; i < fifthPowers.length; i++) {
             fifthPowers[i] = (int) Math.pow(i, 5);
         }
