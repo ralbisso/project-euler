@@ -17,6 +17,7 @@ public class FileUtils {
     public final static String P022 = "p022_names";
     public final static String P042 = "p042_words";
     public final static String P054 = "p054_poker";
+    public final static String P059 = "p059_cipher";
     public final static String P067 = "p067_triangle";
     public final static String P079 = "p067_keylog";
     public final static String P081 = "p081_matrix";
