@@ -13,8 +13,8 @@ public class Problem023 {
         List<Integer> abundantNumbers = getAbundantNumbers(limit);
         for (int a : abundantNumbers) {
             for (int b : abundantNumbers) {
-                if (a + b < canBeWrittenAsSumTwoAbundantNumbers.length) {
-                    int sumOfTwoAbundantNumbers = a + b;
+                int sumOfTwoAbundantNumbers = a + b;
+                if (sumOfTwoAbundantNumbers < canBeWrittenAsSumTwoAbundantNumbers.length) {
                     if (!canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers]) {
                         canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers] = true;
                         sum -= sumOfTwoAbundantNumbers;
