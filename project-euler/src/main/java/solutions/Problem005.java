@@ -1,24 +1,17 @@
 package solutions;
 
-import static utils.FactorizationUtils.getFactorization;
-import static utils.FactorizationUtils.getNumber;
-
-import java.util.Map;
-import java.util.TreeMap;
+import static utils.NumberUtils.getLCM;
 
 public class Problem005 {
 
     public int solve() {
-        Map<Integer, Integer> factorization = new TreeMap<>();
-        for (int number = 2; number <= 20; number++) {
-            for (var e : getFactorization(number).entrySet()) {
-                int factor = e.getKey(), multiplicity = e.getValue();
-                if (factorization.containsKey(factor) && factorization.get(factor) > multiplicity) {
-                    continue;
-                }
-                factorization.put(factor, multiplicity);
-            }
+        // A number divisible by 1, ... , n is the least common multiple of (1, ... , n)
+        // We use the fact that: LCM(a, b) = (a x b) / GCD(a, b)
+        // And: LCM(a0, a1, ... , an) = LCM(a0, LCM(a1, ... , an)
+        int number = 1;
+        for (int divisor = 2; divisor <= 20; divisor++) {
+            number = (int) getLCM(divisor, number);
         }
-        return getNumber(factorization);
+        return number;
     }
 }

@@ -39,6 +39,17 @@ public class NumberUtils {
         return factorial;
     }
 
+    public static long getGCD(long a, long b) {
+        if (b == 0) {
+            return a;
+        }
+        return getGCD(b, a % b);
+    }
+
+    public static long getLCM(long a, long b) {
+        return (a * b) / getGCD(a, b);
+    }
+
     private static int getReverse(int number) {
         int reverse = 0;
         while (number > 0) {
