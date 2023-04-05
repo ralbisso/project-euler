@@ -4,7 +4,7 @@ public class Problem030 {
 
     public int solve() {
         int sum = 0;
-        int[] fifthPowers = getDigitFifthPowers();
+        var fifthPowers = getDigitFifthPowers();
         for (int i = 2; i <= 6 * fifthPowers[9]; i++) {
             int number = i, sumOfDigitFifthPowers = 0;
             while (number > 0) {
