@@ -9,7 +9,7 @@ public class Problem014 {
             long collatz = start;
             int length = 0;
             while (collatz > 1) {
-                if (collatz < length && memo[(int) collatz] != 0) {
+                if (collatz < limit && memo[(int) collatz] != 0) {
                     length += memo[(int) collatz];
                     break;
                 }
