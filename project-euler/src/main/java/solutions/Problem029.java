@@ -10,7 +10,7 @@ public class Problem029 {
         var distinctPowers = new HashSet<>();
         for (int a = 2; a <= limit; a++) {
             for (int b = 2; b <= limit; b++) {
-                BigInteger power = BigInteger.valueOf(a).pow(b);
+                var power = BigInteger.valueOf(a).pow(b);
                 distinctPowers.add(power);
             }
         }
