@@ -8,28 +8,21 @@ import java.util.List;
 public class Problem023 {
 
     public int solve() {
-        int sum = 0;
-        var canBeWrittenAsSumTwoAbundantNumbers = 
-                getNumbersThatCanBeWrittenAsSumOfTwoAbundantNumbers(28123);
-        for (int i = 1; i < canBeWrittenAsSumTwoAbundantNumbers.length; i++) {
-            if (!canBeWrittenAsSumTwoAbundantNumbers[i]) {
-                sum += i;
-            }
-        }
-        return sum;
-    }
-
-    private boolean[] getNumbersThatCanBeWrittenAsSumOfTwoAbundantNumbers(int limit) {
+        int limit = 28123, sum = limit * (limit + 1) / 2;
         boolean[] canBeWrittenAsSumTwoAbundantNumbers = new boolean[limit + 1];
         List<Integer> abundantNumbers = getAbundantNumbers(limit);
         for (int a : abundantNumbers) {
             for (int b : abundantNumbers) {
                 if (a + b < canBeWrittenAsSumTwoAbundantNumbers.length) {
-                    canBeWrittenAsSumTwoAbundantNumbers[a + b] = true;
+                    int sumOfTwoAbundantNumbers = a + b;
+                    if (!canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers]) {
+                        canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers] = true;
+                        sum -= sumOfTwoAbundantNumbers;
+                    }
                 }
             }
         }
-        return canBeWrittenAsSumTwoAbundantNumbers;
+        return sum;
     }
 
     private List<Integer> getAbundantNumbers(int limit) {
