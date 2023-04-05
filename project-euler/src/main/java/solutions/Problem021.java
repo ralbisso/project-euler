@@ -8,7 +8,6 @@ public class Problem021 {
         var sumOfDivisors = getSumOfDivisors(10000);
         int sum = 0, length = sumOfDivisors.length;
         for (int i = 2; i < length; i++) {
-            // da and db are the sum of proper divisors of a and b
             int a = i, da = sumOfDivisors[a], b = da;
             if (a < b && b < length) {
                 int db = sumOfDivisors[b];
