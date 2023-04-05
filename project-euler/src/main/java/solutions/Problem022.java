@@ -10,7 +10,7 @@ public class Problem022 {
     private final static String ALPHABET = "\"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public int solve() {
-        String[] input = getAllLinesAsString(P022).split(",");
+        var input = getAllLinesAsString(P022).split(",");
         Arrays.sort(input);
         int total = 0;
         for (int i = 0; i < input.length; i++) {

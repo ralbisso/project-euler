@@ -6,7 +6,7 @@ import static utils.FileUtils.getAllLinesAsGrid;
 public class Problem011 {
 
     public int solve() {
-        int[][] grid = getAllLinesAsGrid(P011);
+        var grid = getAllLinesAsGrid(P011);
         int length = grid.length, max = 0;
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {

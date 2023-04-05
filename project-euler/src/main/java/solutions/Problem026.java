@@ -7,7 +7,7 @@ public class Problem026 {
     public int solve() {
         // We know that primes will generate the longest cycles
         int number = 1, max = 0;
-        boolean[] primes = getSieveOfEratosthenes(1000);
+        var primes = getSieveOfEratosthenes(1000);
         for (int i = 2; i < primes.length; i++) {
             if (primes[i]) {
                 int cycle = 1, remainder = 10 % i;

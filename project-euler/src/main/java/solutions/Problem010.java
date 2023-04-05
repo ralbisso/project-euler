@@ -6,7 +6,7 @@ public class Problem010 {
 
     public long solve() {
         long sum = 0;
-        boolean[] primes = getSieveOfEratosthenes(2000000);
+        var primes = getSieveOfEratosthenes(2000000);
         for (int i = 0; i < primes.length; i++) {
             if (primes[i]) {
                 sum += i;

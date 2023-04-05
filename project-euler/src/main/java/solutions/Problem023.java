@@ -9,7 +9,7 @@ public class Problem023 {
 
     public int solve() {
         int sum = 0;
-        boolean[] canBeWrittenAsSumTwoAbundantNumbers = 
+        var canBeWrittenAsSumTwoAbundantNumbers = 
                 getNumbersThatCanBeWrittenAsSumOfTwoAbundantNumbers(28123);
         for (int i = 1; i < canBeWrittenAsSumTwoAbundantNumbers.length; i++) {
             if (!canBeWrittenAsSumTwoAbundantNumbers[i]) {

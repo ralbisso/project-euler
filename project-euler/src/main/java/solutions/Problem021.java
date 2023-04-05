@@ -5,7 +5,7 @@ import static utils.DivisorsUtils.getSumOfDivisors;
 public class Problem021 {
 
     public int solve() {
-        int[] sumOfDivisors = getSumOfDivisors(10000);
+        var sumOfDivisors = getSumOfDivisors(10000);
         int sum = 0, length = sumOfDivisors.length;
         for (int i = 2; i < length; i++) {
             // da and db are the sum of proper divisors of a and b

@@ -6,7 +6,7 @@ import static utils.FileUtils.getAllLinesAsGrid;
 public sealed class Problem018 permits Problem067 {
 
     public int solve() {
-        int[][] triangle = getAllLinesAsGrid(P018);
+        var triangle = getAllLinesAsGrid(P018);
         return getMaximum(triangle);
     }
 
