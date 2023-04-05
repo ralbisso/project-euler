@@ -5,6 +5,7 @@ import utils.Triplet;
 public class Problem009 {
 
     public int solve() {
+        // We will implement Euclid's formula in the future
         int perimeter = 1000;
         for (int a = 3; a < perimeter; a++) {
             for (int b = a + 1; a + b < perimeter; b++) {
