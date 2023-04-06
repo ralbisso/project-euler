@@ -1,8 +1,45 @@
 package solutions;
 
+import static utils.PrimeUtils.getSieveOfEratosthenes;
+
 public class Problem037 {
 
     public int solve() {
-        return 0;
+        int sum = 0, count = 0;
+        boolean[] primes = getSieveOfEratosthenes(1000000);
+        for (int i = 11; i < primes.length; i++) {
+            if (primes[i]) {
+                int[] truncations = getTruncations(i);
+                boolean isTruncatablePrime = true;
+                for (int j = 0; j < truncations.length; j++) {
+                    if (!primes[truncations[j]]) {
+                        isTruncatablePrime = false;
+                        break;
+                    }
+                }
+                if (isTruncatablePrime) {
+                    sum += i;
+                    if (++count == 11) {
+                        break;
+                    }
+                }
+            }
+        }
+        return sum;
+    }
+
+    private int[] getTruncations(int number) {
+        int left = number, right = number;
+        int size = (int) Math.log10(number);
+        int offset = (int) Math.pow(10, size);
+        int[] truncations = new int[2 * size];
+        for (int i = 0; i < truncations.length; i += 2) {
+            left %= offset;
+            right /= 10;
+            offset /= 10;
+            truncations[i] = left;
+            truncations[i + 1] = right;
+        }
+        return truncations;
     }
 }
