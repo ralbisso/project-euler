@@ -10,8 +10,8 @@ public class Problem032 {
     public int solve() {
         int sum = 0;
         Set<Integer> products = new HashSet<>();
-        sum += getCase(products, 1, 4); // Case 1x4=4
-        sum += getCase(products, 2, 3); // Case 2x3=4
+        sum += getCase(products, 1, 4); // Case 1 digit x 4 digits = 4 digits
+        sum += getCase(products, 2, 3); // Case 2 digits x 3 digits = 4 digits
         return sum;
     }
 
