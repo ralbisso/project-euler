@@ -1,46 +1,39 @@
 package solutions;
 
-import static utils.PermutationUtils.nextPermutation;
+import static utils.NumberUtils.is1To9Pandigital;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class Problem032 {
 
     public int solve() {
         int sum = 0;
-        int[] pandigital = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        var products = new HashSet<>();
-        while (nextPermutation(pandigital)) {
-            int[] case1x4 = getProduct(pandigital, 1, 4);
-            int[] case2x3 = getProduct(pandigital, 2, 3);
-            int product = case1x4[2];
-            if ((isValidProduct(case1x4) || isValidProduct(case2x3)) && products.add(product)) {
-                sum += product;
-            }
-        }
+        Set<Integer> products = new HashSet<>();
+        sum += getCase(products, 1, 4); // Case 1x4=4
+        sum += getCase(products, 2, 3); // Case 2x3=4
         return sum;
     }
 
-    private int[] getProduct(int[] pandigital, int multiplicandSize, int multiplierSize) {
-        int index = 0;
-        int multiplicand = getOperand(pandigital, index, multiplicandSize);
-        index += multiplicandSize;
-        int multiplier = getOperand(pandigital, index, multiplierSize);
-        index += multiplierSize;
-        int product = getOperand(pandigital, index, 4);
-        return new int[] { multiplicand, multiplier, product };
-    }
-
-    private int getOperand(int[] pandigital, int index, int size) {
-        int operand = 0, pow = (int) Math.pow(10, size - 1);
-        for (int i = index; i < index + size; i++) {
-            operand += pandigital[i] * pow;
-            pow /= 10;
+    private int getCase(Set<Integer> products, int multiplicandSize, int multiplierSize) {
+        int sum = 0;
+        int lowerMultiplicand = multiplicandSize == 1 ? 1 : 10;
+        int upperMultiplicand = multiplicandSize == 1 ? 9 : 99;
+        int lowerMultiplier = multiplierSize == 3 ? 100 : 1000;
+        int upperMultiplier = multiplierSize == 3 ? 999 : 9999;
+        int offset = multiplierSize == 3 ? 1000 : 10000;
+        for (int multiplicand = lowerMultiplicand; multiplicand <= upperMultiplicand; multiplicand++) {
+            for (int multiplier = lowerMultiplier; multiplier <= upperMultiplier; multiplier++) {
+                int product = multiplicand * multiplier;
+                if (product <= 9999) {
+                    int operation = multiplicand * offset + multiplier;
+                    operation = operation * 10000 + product;
+                    if (is1To9Pandigital(operation) && products.add(product)) {
+                        sum += product;
+                    }
+                }
+            }
         }
-        return operand;
-    }
-
-    private boolean isValidProduct(int[] product) {
-        return product[0] * product[1] == product[2];
+        return sum;
     }
 }

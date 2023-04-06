@@ -22,11 +22,29 @@ public class NumberUtils {
 
     public static boolean is0To9Pandigital(int[] number) {
         int length = number.length;
+        if (length < 10) {
+            return false;
+        }
         int[] trace = new int[length];
         for (int i = 0; i < length; i++) {
             if (++trace[number[i]] == 2) {
                 return false;
             }
+        }
+        return true;
+    }
+
+    public static boolean is1To9Pandigital(int number) {
+        if (number < 123456789 || number > 987654321) {
+            return false;
+        }
+        int[] trace = new int[9];
+        while (number > 0) {
+            int digit = number % 10;
+            if (digit == 0 || ++trace[digit - 1] == 2) {
+                return false;
+            }
+            number /= 10;
         }
         return true;
     }
