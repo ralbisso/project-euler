@@ -5,8 +5,8 @@ import static utils.PrimeUtils.getSieveOfEratosthenes;
 public class Problem026 {
 
     public int solve() {
-        // We know that primes will generate the longest cycles
         int number = 1, max = 0;
+        // Primes will generate the longest cycles
         var primes = getSieveOfEratosthenes(1000);
         for (int i = 2; i < primes.length; i++) {
             if (primes[i]) {
