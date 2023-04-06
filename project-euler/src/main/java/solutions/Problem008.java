@@ -8,8 +8,9 @@ public class Problem008 {
     public long solve() {
         long max = 0;
         var series = getAllLinesConcatenated(P008);
-        for (int i = 0; i <= series.length() - 13; i++) {
-            long product = getProduct(series.substring(i, i + 13));
+        int size = 13;
+        for (int i = 0; i <= series.length() - size; i++) {
+            long product = getProduct(series.substring(i, i + size));
             if (product > max) {
                 max = product;
             }
