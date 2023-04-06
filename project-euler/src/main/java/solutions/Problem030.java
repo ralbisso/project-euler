@@ -9,8 +9,8 @@ public class Problem030 {
             int number = i, sumOfDigitFifthPowers = 0;
             while (number > 0) {
                 int digit = number % 10;
-                number /= 10;
                 sumOfDigitFifthPowers += fifthPowers[digit];
+                number /= 10;
             }
             if (sumOfDigitFifthPowers == i) {
                 sum += i;
