@@ -37,6 +37,10 @@ public class FileUtils {
         return lines;
     }
 
+    public static String getAllLinesConcatenated(String filename) {
+        return getAllLines(filename).stream().reduce("", (s1, s2) -> s1 + s2);
+    }
+
     public static String getAllLinesAsString(String filename) {
         return getAllLines(filename).get(0);
     }

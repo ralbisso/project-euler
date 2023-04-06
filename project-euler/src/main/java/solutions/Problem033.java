@@ -5,18 +5,16 @@ import objects.Fraction;
 public class Problem033 {
 
     public int solve() {
-        int numerator = 1, denominator = 1;
+        Fraction result = new Fraction(1, 1);
         for (int a = 10; a < 100; a++) {
             for (int b = a + 1; b < 100; b++) {
                 Fraction fraction = new Fraction(a, b);
                 if (isDigitCancellable(fraction)) {
-                    numerator *= fraction.getNumerator();
-                    denominator *= fraction.getDenominator();
+                    result = result.multiply(fraction);
                 }
             }
         }
-        Fraction result = new Fraction(numerator, denominator);
-        return result.getDenominatorInLCT();
+        return result.simplify().getDenominator();
     }
 
     private boolean isDigitCancellable(Fraction fraction) {
@@ -25,7 +23,7 @@ public class Problem033 {
         int denominator = fraction.getDenominator();
         int numTens = numerator / 10, numUnits = numerator % 10;
         int denTens = denominator / 10, denUnits = denominator % 10;
-        // Case X9/X2
+        // Case X3/X2
         isDigitCancellable = isDigitCancellable
                 || isDigitCancellable(fraction, numTens, denTens, numUnits, denUnits);
         // Case X3/2X
