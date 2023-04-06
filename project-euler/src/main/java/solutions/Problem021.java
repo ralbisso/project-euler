@@ -7,8 +7,8 @@ public class Problem021 {
     public int solve() {
         var sumOfDivisors = getSumOfDivisors(10000);
         int sum = 0, length = sumOfDivisors.length;
-        for (int i = 2; i < length; i++) {
-            int a = i, da = sumOfDivisors[a], b = da;
+        for (int a = 2; a < length; a++) {
+            int da = sumOfDivisors[a], b = da;
             if (a < b && b < length) {
                 int db = sumOfDivisors[b];
                 if (isAmicablePair(a, da, b, db)) {
