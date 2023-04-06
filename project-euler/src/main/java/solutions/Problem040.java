@@ -13,19 +13,18 @@ public class Problem040 {
                 power *= 10;
             }
             if (constant.isEmpty()) {
-                number = feedConstant(constant, number);
+                feedConstant(constant, ++number);
             }
             digit = constant.removeFirst();
         }
         return product;
     }
 
-    private int feedConstant(LinkedList<Integer> constant, int number) {
+    private void feedConstant(LinkedList<Integer> constant, int number) {
         int addToConstant = ++number;
         while (addToConstant > 0) {
             constant.addFirst(addToConstant % 10);
             addToConstant /= 10;
         }
-        return number;
     }
 }
