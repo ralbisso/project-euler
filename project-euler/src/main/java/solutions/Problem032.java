@@ -17,13 +17,11 @@ public class Problem032 {
 
     private int getCase(Set<Integer> products, int multiplicandSize, int multiplierSize) {
         int sum = 0;
-        int lowerMultiplicand = multiplicandSize == 1 ? 1 : 10;
-        int upperMultiplicand = multiplicandSize == 1 ? 9 : 99;
-        int lowerMultiplier = multiplierSize == 3 ? 100 : 1000;
-        int upperMultiplier = multiplierSize == 3 ? 999 : 9999;
-        int offset = multiplierSize == 3 ? 1000 : 10000;
-        for (int multiplicand = lowerMultiplicand; multiplicand <= upperMultiplicand; multiplicand++) {
-            for (int multiplier = lowerMultiplier; multiplier <= upperMultiplier; multiplier++) {
+        int[] multiplicandBounds = getBounds(multiplicandSize);
+        int[] multiplierBounds = getBounds(multiplierSize);
+        int offset = multiplierBounds[0] * 10;
+        for (int multiplicand = multiplicandBounds[0]; multiplicand <= multiplicandBounds[1]; multiplicand++) {
+            for (int multiplier = multiplierBounds[0]; multiplier <= multiplierBounds[1]; multiplier++) {
                 int product = multiplicand * multiplier;
                 if (product <= 9999) {
                     int operation = multiplicand * offset + multiplier;
@@ -35,5 +33,11 @@ public class Problem032 {
             }
         }
         return sum;
+    }
+
+    private int[] getBounds(int size) {
+        int lower = (int) Math.pow(10, size - 1);
+        int upper = lower * 10 - 1;
+        return new int[] { lower, upper };
     }
 }
