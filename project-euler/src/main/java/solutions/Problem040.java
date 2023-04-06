@@ -21,7 +21,7 @@ public class Problem040 {
     }
 
     private void feedConstant(LinkedList<Integer> constant, int number) {
-        int addToConstant = ++number;
+        int addToConstant = number;
         while (addToConstant > 0) {
             constant.addFirst(addToConstant % 10);
             addToConstant /= 10;
