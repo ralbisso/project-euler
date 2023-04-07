@@ -5,7 +5,7 @@ public class Problem034 {
     public int solve() {
         int sum = 0;
         var factorials = getDigitFactorials();
-        for (int i = 10; i <= 6 * factorials[9]; i++) {
+        for (int i = 10; i <= 7 * factorials[9]; i++) {
             int number = i, sumOfDigitFactorials = 0;
             while (number > 0) {
                 int digit = number % 10;
