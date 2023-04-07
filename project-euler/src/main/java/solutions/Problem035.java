@@ -1,12 +1,13 @@
 package solutions;
 
+import static utils.NumberUtils.getSize;
 import static utils.PrimeUtils.getSieveOfEratosthenes;
 
 public class Problem035 {
 
     public int solve() {
         int count = 0;
-        boolean[] primes = getSieveOfEratosthenes(1000000);
+        var primes = getSieveOfEratosthenes(1000000);
         for (int i = 2; i < primes.length; i++) {
             if (primes[i]) {
                 int[] rotations = getRotations(i);
@@ -26,7 +27,7 @@ public class Problem035 {
     }
 
     private int[] getRotations(int number) {
-        int size = (int) Math.log10(number);
+        int size = getSize(number);
         int offset = (int) Math.pow(10, size);
         int[] rotations = new int[size];
         for (int i = 0; i < rotations.length; i++) {

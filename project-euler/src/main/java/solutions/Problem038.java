@@ -1,5 +1,6 @@
 package solutions;
 
+import static utils.NumberUtils.getSize;
 import static utils.NumberUtils.is1To9Pandigital;
 
 public class Problem038 {
@@ -10,7 +11,7 @@ public class Problem038 {
             int concatenated = i, multiples = i;
             while (concatenated < 100000000) {
                 multiples += i;
-                int size = (int) Math.log10(multiples);
+                int size = getSize(multiples);
                 concatenated *= (int) Math.pow(10, size + 1);
                 concatenated += multiples;
             }

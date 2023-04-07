@@ -6,7 +6,7 @@ public class Problem037 {
 
     public int solve() {
         int sum = 0, count = 0;
-        boolean[] primes = getSieveOfEratosthenes(1000000);
+        var primes = getSieveOfEratosthenes(1000000);
         for (int i = 11; i < primes.length; i++) {
             if (primes[i]) {
                 int[] truncations = getTruncations(i);

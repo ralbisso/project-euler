@@ -10,7 +10,7 @@ public class Problem039 {
         for (int a = 1; a < limit; a++) {
             for (int b = a; a + b < limit; b++) {
                 for (int c = b + 1; a + b + c <= limit; c++) {
-                    Triangle triangle = new Triangle(a, b, c);
+                    var triangle = new Triangle(a, b, c);
                     int trianglePerimeter = triangle.getPerimeter();
                     if (triangle.isRectangle() && ++perimeters[trianglePerimeter] > max) {
                         max = perimeters[trianglePerimeter];
