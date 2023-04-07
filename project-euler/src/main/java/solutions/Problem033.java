@@ -5,10 +5,10 @@ import objects.Fraction;
 public class Problem033 {
 
     public int solve() {
-        Fraction result = new Fraction(1, 1);
+        var result = new Fraction(1, 1);
         for (int a = 10; a < 100; a++) {
             for (int b = a + 1; b < 100; b++) {
-                Fraction fraction = new Fraction(a, b);
+                var fraction = new Fraction(a, b);
                 if (isDigitCancellable(fraction)) {
                     result = result.multiply(fraction);
                 }
