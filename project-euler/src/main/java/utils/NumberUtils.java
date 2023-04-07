@@ -38,10 +38,15 @@ public class NumberUtils {
         if (number < 123456789 || number > 987654321) {
             return false;
         }
-        int[] trace = new int[9];
+        return is1ToNPandigital(number);
+    }
+
+    public static boolean is1ToNPandigital(int number) {
+        int size = getSize(number);
+        int[] trace = new int[size];
         while (number > 0) {
             int digit = number % 10;
-            if (digit == 0 || ++trace[digit - 1] == 2) {
+            if (digit == 0 || digit > size || ++trace[digit - 1] == 2) {
                 return false;
             }
             number /= 10;
@@ -83,5 +88,9 @@ public class NumberUtils {
             number /= 10;
         }
         return reverse;
+    }
+
+    public static int getSize(int number) {
+        return (int) Math.log10(number) + 1;
     }
 }

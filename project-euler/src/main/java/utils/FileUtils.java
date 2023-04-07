@@ -41,8 +41,8 @@ public class FileUtils {
         return getAllLines(filename).stream().reduce("", (s1, s2) -> s1 + s2);
     }
 
-    public static String getAllLinesAsString(String filename) {
-        return getAllLines(filename).get(0);
+    public static String[] getAllLinesAsStringArray(String filename) {
+        return getAllLines(filename).get(0).split(",");
     }
 
     public static int[][] getAllLinesAsGrid(String fileName) {
