@@ -42,7 +42,7 @@ public class Problem033 {
 
     private boolean isDigitCancellable(Fraction fraction, int eq1, int eq2, int frac1, int frac2) {
         if (eq1 == eq2) {
-            Fraction digitCancelled = new Fraction(frac1, frac2);
+            var digitCancelled = new Fraction(frac1, frac2);
             if (fraction.equals(digitCancelled)) {
                 return true;
             }

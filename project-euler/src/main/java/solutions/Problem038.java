@@ -12,7 +12,7 @@ public class Problem038 {
             while (concatenated < 100000000) {
                 multiples += i;
                 int size = getSize(multiples);
-                concatenated *= (int) Math.pow(10, size + 1);
+                concatenated *= (int) Math.pow(10, size);
                 concatenated += multiples;
             }
             if (concatenated > max && is1To9Pandigital(concatenated)) {

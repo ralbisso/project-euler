@@ -45,11 +45,11 @@ public class FileUtils {
         return getAllLines(filename).get(0).split(",");
     }
 
-    public static int[][] getAllLinesAsGrid(String fileName) {
+    public static int[][] getAllLinesAsGrid(String fileName, String separator) {
         var input = getAllLines(fileName);
         var grid = new int[input.size()][];
         for (int i = 0; i < grid.length; i++) {
-            var split = input.get(i).split(" ");
+            var split = input.get(i).split(separator);
             var row = new int[split.length];
             for (int j = 0; j < row.length; j++) {
                 row[j] = Integer.parseInt(split[j]);

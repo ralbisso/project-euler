@@ -27,7 +27,7 @@ public class Problem035 {
     }
 
     private int[] getRotations(int number) {
-        int size = getSize(number);
+        int size = getSize(number) - 1;
         int offset = (int) Math.pow(10, size);
         int[] rotations = new int[size];
         for (int i = 0; i < rotations.length; i++) {
