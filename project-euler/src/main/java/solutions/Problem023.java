@@ -10,7 +10,7 @@ public class Problem023 {
     public int solve() {
         int limit = 28123, sum = limit * (limit + 1) / 2;
         var canBeWrittenAsSumTwoAbundantNumbers = new boolean[limit + 1];
-        List<Integer> abundantNumbers = getAbundantNumbers(limit);
+        var abundantNumbers = getAbundantNumbers(limit);
         for (int a : abundantNumbers) {
             for (int b : abundantNumbers) {
                 int sumOfTwoAbundantNumbers = a + b;
