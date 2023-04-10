@@ -10,7 +10,7 @@ public class Problem027 {
     public int solve() {
         // If n = 0, then n² + an + b = b, so b should be prime
         var primes = getSieveOfEratosthenes(1000);
-        int max = 0, product = 0, length = primes.length;
+        int product = 0, max = 0, length = primes.length;
         for (int a = -999; a < 1000; a++) {
             for (int b = 3; b < length; b += 2) {
                 if (primes[b]) {
