@@ -1,6 +1,6 @@
 package solutions;
 
-import java.util.Arrays;
+import static utils.NumberUtils.is0To9Pandigital;
 
 public class Problem043 {
 
@@ -8,45 +8,31 @@ public class Problem043 {
 
     public long solve() {
         long sum = 0;
-        int[] number = { 1, 0, 2, 3, 4, 5, 6, 7, 8, 9 };
-        int[] last = new int[10];
-        Arrays.fill(last, 9);
-        int satisfiedConstraints = 0;
-        while (!Arrays.equals(number, last)) {
-            while (satisfiedConstraints < constraints.length) {
-                while (!isConstraintSatisfied(number, satisfiedConstraints)) {
-                    satisfiedConstraints = incrementNumber(number, satisfiedConstraints);
+        int[] number = new int[10];
+        number[0] = 1;
+        int index = 0;
+        while (number[0] > 0) {
+            while (index < constraints.length) {
+                while (!isConstraintSatisfied(number, index)) {
+                    index = incrementNumber(number, index + 3);
                 }
-                satisfiedConstraints++;
+                index++;
             }
-            // if (is0To9Pandigital(number)) {
-            System.out.println(Arrays.toString(number));
-            // }
-            satisfiedConstraints = incrementNumber(number, number.length - 1);
+            if (is0To9Pandigital(number)) {
+                sum += concatenateNumber(number);
+            }
+            index = incrementNumber(number, number.length - 1);
         }
         return sum;
     }
 
-    private boolean isConstraintSatisfied(int[] number, int constraint) {
-        int subnumber = getIntArrayToNumber(number, constraint + 1, constraint + 3);
-        return constraint < 0 || subnumber % constraints[constraint] == 0;
+    private long concatenateNumber(int[] array) {
+        return concatenateNumber(array, 0, array.length);
     }
 
-    private int getIntArrayToNumber(int[] array, int begin, int end) {
-        if (begin < 0 || end > array.length) {
-            return 0;
-        }
-        int number = 0;
-        for (int i = begin; i <= end; i++) {
-            number *= 10;
-            number += array[i];
-        }
-        return number;
-    }
-
-    private long getIntArrayToNumber(int[] array) {
+    private long concatenateNumber(int[] array, int begin, int end) {
         long number = 0;
-        for (int i = 0; i < array.length; i++) {
+        for (int i = Math.max(0, begin); i < Math.min(end, array.length); i++) {
             number *= 10;
             number += array[i];
         }
@@ -54,9 +40,14 @@ public class Problem043 {
     }
 
     private int incrementNumber(int[] number, int index) {
-        while (index > 0 && ++number[index] > 9) {
+        while (index >= 0 && ++number[index] > 9) {
             number[index--] = 0;
         }
-        return index;
+        return Math.max(0, index - 3);
+    }
+
+    private boolean isConstraintSatisfied(int[] number, int index) {
+        int subNumber = (int) concatenateNumber(number, index + 1, index + 4);
+        return subNumber > 0 && subNumber % constraints[index] == 0;
     }
 }
