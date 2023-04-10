@@ -5,9 +5,9 @@ import java.util.LinkedList;
 public class Problem040 {
 
     public int solve() {
-        int product = 1, power = 1, digit = 1, number = 1;
+        int product = 1, power = 1, digit = 1, number = 1, limit = 1000000;
         LinkedList<Integer> constant = new LinkedList<>();
-        for (int i = 1; i < 1000000; i++) {
+        for (int i = 1; i < limit; i++) {
             if (i % power == 0) {
                 product *= digit;
                 power *= 10;
