@@ -14,8 +14,10 @@ public class Problem023 {
         for (int a : abundantNumbers) {
             for (int b : abundantNumbers) {
                 int sumOfTwoAbundantNumbers = a + b;
-                if (sumOfTwoAbundantNumbers < canBeWrittenAsSumTwoAbundantNumbers.length
-                        && !canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers]) {
+                if (sumOfTwoAbundantNumbers >= canBeWrittenAsSumTwoAbundantNumbers.length) {
+                    break;
+                }
+                if (!canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers]) {
                     canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers] = true;
                     sum -= sumOfTwoAbundantNumbers;
                 }
