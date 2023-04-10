@@ -14,11 +14,10 @@ public class Problem023 {
         for (int a : abundantNumbers) {
             for (int b : abundantNumbers) {
                 int sumOfTwoAbundantNumbers = a + b;
-                if (sumOfTwoAbundantNumbers < canBeWrittenAsSumTwoAbundantNumbers.length) {
-                    if (!canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers]) {
-                        canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers] = true;
-                        sum -= sumOfTwoAbundantNumbers;
-                    }
+                if (sumOfTwoAbundantNumbers < canBeWrittenAsSumTwoAbundantNumbers.length
+                        && !canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers]) {
+                    canBeWrittenAsSumTwoAbundantNumbers[sumOfTwoAbundantNumbers] = true;
+                    sum -= sumOfTwoAbundantNumbers;
                 }
             }
         }
