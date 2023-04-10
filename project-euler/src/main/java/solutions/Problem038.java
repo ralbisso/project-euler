@@ -6,10 +6,10 @@ import static utils.NumberUtils.is1To9Pandigital;
 public class Problem038 {
 
     public int solve() {
-        int max = 0;
+        int max = 0, limit = (int) Math.pow(10, 8);
         for (int i = 1; i < 10000; i++) {
             int concatenated = i, multiples = i;
-            while (concatenated < 100000000) {
+            while (concatenated < limit) {
                 multiples += i;
                 int size = getSize(multiples);
                 concatenated *= (int) Math.pow(10, size);
