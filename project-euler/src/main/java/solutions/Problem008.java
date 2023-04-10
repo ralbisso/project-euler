@@ -21,12 +21,10 @@ public class Problem008 {
     private long getProduct(String substring) {
         long product = 1;
         for (char c : substring.toCharArray()) {
-            int digit = Character.getNumericValue(c);
-            if (digit != 0) {
-                product *= digit;
-            } else {
+            if (c == '0') {
                 return 0;
             }
+            product *= Character.getNumericValue(c);
         }
         return product;
     }
