@@ -25,6 +25,14 @@ public class PolygonalUtils {
         return triangles;
     }
 
+    public static int[] getSquares(int size) {
+        int[] squares = new int[size + 1];
+        for (int i = 1; i < squares.length; i++) {
+            squares[i - 1] = i * i;
+        }
+        return squares;
+    }
+
     public static int[] getPentagons(int size) {
         int[] pentagons = new int[size + 1];
         pentagons[0] = 1;
