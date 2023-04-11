@@ -28,4 +28,14 @@ public class PolygonalUtils {
         }
         return triangles;
     }
+
+    public static int[] getPentagons(int size) {
+        int[] pentagons = new int[size + 1];
+        pentagons[0] = 1;
+        pentagons[1] = 5;
+        for (int i = 2; i < pentagons.length; i++) {
+            pentagons[i] = 2 * pentagons[i - 1] - pentagons[i - 2] + 3;
+        }
+        return pentagons;
+    }
 }
