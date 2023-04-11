@@ -2,21 +2,21 @@ package utils;
 
 public class PolygonalUtils {
 
-    public static boolean isTriangular(int number) {
+    public static boolean isTriangular(long number) {
         return isSquare(8 * number + 1);
     }
 
-    public static boolean isSquare(int number) {
-        int root = (int) Math.sqrt(number);
+    public static boolean isSquare(long number) {
+        long root = (long) Math.sqrt(number);
         return root * root == number;
     }
 
-    public static boolean isPentagonal(int number) {
-        int root = (int) Math.sqrt(24 * number + 1);
+    public static boolean isPentagonal(long number) {
+        long root = (long) Math.sqrt(24 * number + 1);
         return root * root == 24 * number + 1 && (root - 5) % 6 == 0;
     }
 
-    public static boolean isHexagonal(int number) {
+    public static boolean isHexagonal(long number) {
         return isSquare(8 * number + 1);
     }
 
