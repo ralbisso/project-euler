@@ -5,9 +5,10 @@ import static utils.FactorizationUtils.getNumberOfDivisors;
 public class Problem012 {
 
     public int solve() {
-        int triangle = 1, increment = 1;
+        int n = 1, triangle = 1;
         while (getNumberOfDivisors(triangle) < 500) {
-            triangle += ++increment;
+            n++;
+            triangle = n * (n + 1) / 2;
         }
         return triangle;
     }
