@@ -13,7 +13,7 @@ public class Problem022 {
         Arrays.sort(input);
         int total = 0;
         for (int i = 0; i < input.length; i++) {
-            total += getScore(i, input[i]);
+            total += getScore(input[i]) * (i + 1);
         }
         return total;
     }
