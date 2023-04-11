@@ -11,7 +11,7 @@ public class Problem029 {
         for (int a = 2; a <= limit; a++) {
             var bigA = BigInteger.valueOf(a);
             var power = bigA;
-            for (int b = 2; b <= limit; b++) {
+            for (int b = 1; b < limit; b++) {
                 power = power.multiply(bigA);
                 distinctPowers.add(power);
             }
