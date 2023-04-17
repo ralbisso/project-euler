@@ -1,12 +1,13 @@
 package solutions;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 public class TestProblem062 {
 
     @Test
     public void test() {
-        Assert.assertEquals(Solutions.PROBLEM_062, new Problem062().solve());
+        assertEquals(Solutions.PROBLEM_062, new Problem062().solve());
     }
 }
